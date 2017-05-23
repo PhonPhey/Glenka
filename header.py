@@ -1,6 +1,13 @@
-import arcade
-SCREEN_WIDTH = 600
-SCREEN_HEIGHT = 800
+''' Header file '''
+
+WIN_WIDTH = 800
+WIN_HEIGHT = 600
+DISPLAY = (WIN_WIDTH, WIN_HEIGHT)
 WIN_TITLE = "GLENKA"
-WIN_BACKGROUND_COLOR = (100, 87, 30)
+
+BACKGROUND_COLOR = "#bef7e9"
+
 SCALE = 1
+
+TEX_STN = "res/tex/tex_stonee.png"
+SND_BGN = "res/snd/jksm.wav"
