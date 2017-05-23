@@ -1,34 +1,31 @@
 import pygame as pg
 import header as hd
+import simpleaudio as sa
+import os
 
+def play_music(path_snd, snd_name):
 
-def play_music(path):
-  
-    pg.mixer.init(frequency=22050, size=-16, channels=2, buffer=4096)
-    pg.mixer.music.load(path)
+    pg.mixer.init()
+    pg.mixer.music.load(os.path.join(path_snd, snd_name))
     pg.mixer.music.play(0)
-        #for m in pg.event.get():
-            #if m.type == QUIT:
-                #exit (0)
 
 def main():
     pg.init()
+    pg.mixer.init()
+
     win = pg.display.set_mode(hd.DISPLAY)
     pg.display.set_caption(hd.WIN_TITLE)
     bg = pg.Surface((hd.WIN_WIDTH, hd.WIN_HEIGHT))
 
     bg.fill(pg.Color(hd.BACKGROUND_COLOR))
-    fon = pg.sprite.Sprite('')
-    fon.draw()
-    pg.sprite.Sprite.update()
+    play_music(hd.PATH_SND, "begin_song.ogg")
 
-    """while 1:
+    while 1:
         for e in pg.event.get():
-            if e.type == QUIT:
-                raise()SystemExit, "QUIT"
-        screen.blit(bg, (0,0))
-        pg.display.update()"""
+            if e.type == pg.QUIT:
+                raise Exception(SystemExit, "QUIT")
+        win.blit(bg, (0, 0))
+        pg.display.update()
 
 if __name__ == "__main__":
-    play_music()
-    #main()
+    main()

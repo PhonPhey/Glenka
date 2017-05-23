@@ -9,5 +9,5 @@ BACKGROUND_COLOR = "#bef7e9"
 
 SCALE = 1
 
-TEX_STN = "res/tex/tex_stonee.png"
-SND_BGN = "res/snd/jksm.wav"
+PATH_TEX = "res/tex"
+PATH_SND = "res/snd"
