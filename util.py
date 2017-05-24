@@ -9,6 +9,10 @@ def play_music(path_snd, snd_name):
     pg.mixer.music.play(0)
 
 
-def tex(path_tex, tex_name):
+def load_tex(path_tex, tex_name):
 
     return pg.image.load(os.path.join(path_tex, tex_name + ".png"))
+
+def sprt(path_sprt, sprt_name, widht, height):
+    block_list = pg.sprite.Group()
+    

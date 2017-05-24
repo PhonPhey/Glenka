@@ -1,4 +1,5 @@
 import pygame as pg
+import pyganim as pga
 import header as hd
 import simpleaudio as sa
 import os
@@ -23,8 +24,10 @@ def main():
                 raise Exception(SystemExit, "QUIT")
         win.blit(bg, (0, 0))
         win.blit(hd.TEX_STN, (23, 17))
-        pg.display.update()
 
+
+
+        pg.display.update()
 
 if __name__ == "__main__":
     main()
