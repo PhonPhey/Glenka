@@ -32,10 +32,22 @@ def main():
     platforms = []  # то, во что мы будем врезаться или опираться
     entities.add(hero)
 
+    x = y = 0  # координаты
+    for row in lvl.LEVEL_0:  # вся строка
+            for col in row:  # каждый символ
+                if col == "-":
+                    pf = plt.Platform(x, y)
+                    entities.add(pf)
+                    platforms.append(pf)
+
+                x += hd.PLATFORM_WIDTH  # блоки платформы ставятся на ширине блоков
+            y += hd.PLATFORM_HEIGHT  # то же самое и с высотой
+            x = 0  # на каждой новой строчке начинаем с нуля
+
     play_music(hd.PATH_SND, hd.SND_BGN)
 
     while 1:
-        # Максимальное кол-во FPS
+            # Максимальное кол-во FPS
         timer.tick(60)
 
         for e in pg.event.get():
@@ -64,25 +76,12 @@ def main():
 
         win.blit(bg, (0, 0))
 
-        x = y = 0  # координаты
-        for row in lvl.LEVEL_0:  # вся строка
-            for col in row:  # каждый символ
-                if col == "-":
-                    pf = plt.Platform(x, y)
-                    entities.add(pf)
-                    platforms.append(pf)
-
-                x += hd.PLATFORM_WIDTH  # блоки платформы ставятся на ширине блоков
-            y += hd.PLATFORM_HEIGHT  # то же самое и с высотой
-            x = 0  # на каждой новой строчке начинаем с нуля
-
         # print(hero.rect.x)
-
-        hero.update(left, right, up, platforms)  # передвижение
+        
         entities.draw(win)  # отображение
+        hero.update(left, right, up, platforms)  # передвижение
 
         pg.display.update()
-
 
 if __name__ == "__main__":
     main()

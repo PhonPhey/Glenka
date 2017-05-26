@@ -19,22 +19,30 @@ class Player(sprite.Sprite):
         self.startY = y
 
         self.sprt_cort = player_sprt
-        self.image = player_sprt[0]
+        self.image = player_sprt[1]
         # self.image.fill(Color(hd.COLOR))
 
         self.rect = Rect(x, y, hd.WIDTH, hd.HEIGHT)  # прямоугольный объект
 
     def update(self, left, right, up, platforms):
 
-        if up:
+        if up and self.xvel != -MOVE_SPEED:
             if self.onGround:  # прыгаем, только когда можем оттолкнуться от земли
                 self.yvel = -JUMP_POWER
+                self.image = hd.SPRT_OSEL[2]
+
+        if up and self.xvel != MOVE_SPEED:
+            if self.onGround:  # прыгаем, только когда можем оттолкнуться от земли
+                self.yvel = -JUMP_POWER
+                self.image = hd.SPRT_OSEL[2]
 
         if left:
             self.xvel = -MOVE_SPEED  # Лево = x- n
+            self.image = hd.SPRT_OSEL[1]
 
         if right:
             self.xvel = MOVE_SPEED  # Право = x + n
+            self.image = hd.SPRT_OSEL[0]
 
         if not(left or right):  # стоим, когда нет указаний идти
             self.xvel = 0
@@ -61,9 +69,11 @@ class Player(sprite.Sprite):
                     self.rect.left = p.rect.right  # то не движется влево
 
                 if yvel > 0:                      # если падает вниз
+                    self.image = hd.SPRT_OSEL[2]
                     self.rect.bottom = p.rect.top  # то не падает вниз
                     self.onGround = True          # и становится на что-то твердое
                     self.yvel = 0                 # и энергия падения пропадает
+                    self.image = hd.SPRT_OSEL[0]
 
                 if yvel < 0:                      # если движется вверх
                     self.rect.top = p.rect.bottom  # то не движется вверх

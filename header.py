@@ -4,13 +4,13 @@ from util import *
 import pyganim as pga
 
 WIN_WIDTH = 800
-WIN_HEIGHT = 600
+WIN_HEIGHT = 635
 DISPLAY = (WIN_WIDTH, WIN_HEIGHT)
 WIN_TITLE = "GLENKA"
 
 BACKGROUND_COLOR = "#bef7e9"
 
-SCALE = 1
+SCALE = 0.5
 
 PATH_TEX = "res/tex"
 PATH_SPRT = "res/sprt/"
@@ -32,9 +32,9 @@ SND_BGN = "begin_song"
 
 # Player const
 
-MOVE_SPEED = 7
-WIDTH = 32
-HEIGHT = 32
+MOVE_SPEED = 4
+WIDTH = 59
+HEIGHT = 56
 COLOR = "#888888"
 JUMP_POWER = 10
 GRAVITY = 0.35
