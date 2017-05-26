@@ -14,9 +14,10 @@ def load_tex(path_tex, tex_name):
 
     return pg.image.load(os.path.join(path_tex, tex_name + ".png"))
 
-#os.path.join(path_sprt, sprt_name + ".png")
-def load_sprt(path_sprt,spec_path_sprt , sprt_name):
+
+def load_sprt(path_sprt, spec_path_sprt, sprt_name):
     return pg.image.load(os.path.join(path_sprt + spec_path_sprt, sprt_name + ".png"))
+
 
 def sprt(path_sprt, sprt_name, widht, height):
     block_list = pg.sprite.Group()

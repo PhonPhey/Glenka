@@ -30,9 +30,17 @@ TEX_STN = load_tex(PATH_TEX, "tex_stone")
 # Sound const
 SND_BGN = "begin_song"
 
-# player const
+# Player const
 
 MOVE_SPEED = 7
-WIDTH = 22
+WIDTH = 32
 HEIGHT = 32
 COLOR = "#888888"
+JUMP_POWER = 10
+GRAVITY = 0.35
+
+# Platform const
+
+PLATFORM_WIDTH = 32
+PLATFORM_HEIGHT = 32
+PLATFORM_COLOR = "#FF6262"
